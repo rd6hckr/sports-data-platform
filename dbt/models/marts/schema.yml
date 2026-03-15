@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: mart_standings
+    description: "Final standings mart"
+    columns:
+      - name: team_id
+        tests:
+          - not_null
+      - name: points
+        tests:
+          - not_null
+      - name: position
+        tests:
+          - not_null
+
+  - name: mart_matches
+    description: "Final matches mart"
+    columns:
+      - name: match_id
+        tests:
+          - not_null
+          - unique
+      - name: total_goals
+        tests:
+          - not_null
+
+  - name: mart_competition_stats
+    description: "Competition level statistics"
+    columns:
+      - name: competition_code
+        tests:
+          - not_null

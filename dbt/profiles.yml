@@ -3,10 +3,10 @@ sports_platform:
   outputs:
     dev:
       type: postgres
-      host: db
-      user: sportsuser
-      password: sportspass123
-      port: 5432
-      dbname: sportsdb
+      host: "{{ env_var('POSTGRES_HOST', 'db') }}"
+      user: "{{ env_var('POSTGRES_USER') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD') }}"
+      port: "{{ env_var('POSTGRES_PORT', '5432') | int }}"
+      dbname: "{{ env_var('POSTGRES_DB') }}"
       schema: public
       threads: 4

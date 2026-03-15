@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: stg_standings
+    description: "Cleaned standings data"
+    columns:
+      - name: team_id
+        tests:
+          - not_null
+      - name: competition_code
+        tests:
+          - not_null
+      - name: points
+        tests:
+          - not_null
+
+  - name: stg_matches
+    description: "Cleaned matches data"
+    columns:
+      - name: match_id
+        tests:
+          - not_null
+          - unique
+      - name: competition_code
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['PL', 'PD', 'BL1', 'SA', 'CL']
+
+  - name: stg_teams
+    description: "Cleaned teams data"
+    columns:
+      - name: team_id
+        tests:
+          - not_null
+          - unique
