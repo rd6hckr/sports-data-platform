@@ -1,10 +1,9 @@
-# ⚽ Sports Data Platform
+# Sports Data Platform
 
 A production-grade ELT data platform for European football analytics, built with modern data engineering tools.
 
-![Dashboard](docs/dashboard.png)
 
-## 🏗️ Architecture
+## Architecture
 ```
 football-data.org API
         ↓
@@ -21,7 +20,7 @@ React + TypeScript (dashboard)
 Docker Compose (fully containerized)
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -33,7 +32,7 @@ Docker Compose (fully containerized)
 | Containerization | Docker + Docker Compose |
 | Testing | dbt tests + pytest |
 
-## 📊 Features
+## Features
 
 - **ELT Pipeline** — raw data ingested and loaded first, transformed in-database via dbt
 - **Multi-league** — Premier League, La Liga, Bundesliga, Serie A, Champions League
@@ -42,7 +41,7 @@ Docker Compose (fully containerized)
 - **Interactive dashboard** — standings, match results, competition statistics
 - **Production patterns** — connection pooling, error handling, health checks
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -74,7 +73,7 @@ docker run --rm \
   test --profiles-dir /usr/app/dbt --project-dir /usr/app/dbt
 ```
 
-## 🌐 Services
+## Services
 
 | Service | URL |
 |---------|-----|
@@ -83,35 +82,12 @@ docker run --rm \
 | API Docs | http://localhost:8000/docs |
 | Airflow | http://localhost:8080 |
 
-## 📁 Project Structure
-```
-sports-data-platform/
-├── airflow/
-│   └── dags/
-│       └── football_ingestion.py   # ELT DAG
-├── dbt/
-│   └── models/
-│       ├── staging/                # Clean raw data
-│       ├── intermediate/           # Business logic
-│       └── marts/                  # Final tables
-├── api/
-│   ├── main.py                     # FastAPI app
-│   └── tests/                      # pytest suite
-├── frontend/
-│   └── src/
-│       ├── components/             # React components
-│       ├── hooks/                  # Custom hooks
-│       ├── pages/                  # Page components
-│       ├── services/               # API client
-│       └── types/                  # TypeScript types
-└── docker-compose.yml
-```
 
-## 🧪 Testing
+## Testing
 
 - **dbt tests** — 16 tests covering not_null, unique, accepted_values across all layers
 - **API tests** — pytest suite with mocked database layer
 
-## 📄 License
+## License
 
 MIT
