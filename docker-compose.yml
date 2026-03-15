@@ -91,5 +91,16 @@ services:
       - api
     restart: unless-stopped
 
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-postgres:1.7.17
+    volumes:
+      - ./dbt:/usr/app/dbt
+    working_dir: /usr/app/dbt
+    depends_on:
+      db:
+        condition: service_healthy
+    command: run --profiles-dir /usr/app/dbt --project-dir /usr/app/dbt
+    restart: "no"
+
 volumes:
   pgdata:
