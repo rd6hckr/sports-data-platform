@@ -1,0 +1,12 @@
+sports_platform:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: db
+      user: sportsuser
+      password: sportspass123
+      port: 5432
+      dbname: sportsdb
+      schema: public
+      threads: 4
