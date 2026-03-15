@@ -45,7 +45,7 @@ def health():
 def get_competitions():
     return query("""
         SELECT DISTINCT competition_code, season
-        FROM marts.mart_standings
+        FROM public_marts.mart_standings
         ORDER BY competition_code, season DESC
     """)
 
@@ -56,7 +56,7 @@ def get_standings(
     season: str = Query(None)
 ):
     sql = """
-        SELECT * FROM marts.mart_standings
+        SELECT * FROM public_marts.mart_standings
         WHERE competition_code = %s
     """
     params = [competition]
@@ -74,7 +74,7 @@ def get_matches(
     limit: int = Query(20)
 ):
     sql = """
-        SELECT * FROM marts.mart_matches
+        SELECT * FROM public_marts.mart_matches
         WHERE competition_code = %s
     """
     params = [competition]
@@ -91,7 +91,7 @@ def get_competition_stats(
     competition: str = Query("PL")
 ):
     return query("""
-        SELECT * FROM marts.mart_competition_stats
+        SELECT * FROM public_marts.mart_competition_stats
         WHERE competition_code = %s
         ORDER BY season DESC
     """, [competition])
@@ -116,7 +116,7 @@ def get_top_teams(
             goal_difference,
             win_percentage,
             avg_goals_per_game
-        FROM marts.mart_standings
+        FROM public_marts.mart_standings
         WHERE competition_code = %s
     """
     params = [competition]
